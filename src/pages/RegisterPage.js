@@ -32,7 +32,7 @@ const RegisterPage = () => {
   };
   return (
     <div className="display-center">
-      {error && <div>{error}</div>}
+      {error && <div className="red-error">{error}</div>}
       <Form className="login-box" onSubmit={handleSubmit}>
         <h1>회원가입</h1>
         <Form.Group className="mb-3" controlId="formName">
@@ -41,6 +41,7 @@ const RegisterPage = () => {
             type="string"
             placeholder="Name"
             onChange={(e) => setName(e.target.value)}
+            required
           />
         </Form.Group>
 
@@ -50,6 +51,7 @@ const RegisterPage = () => {
             type="email"
             placeholder="Enter email"
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </Form.Group>
 
@@ -59,15 +61,17 @@ const RegisterPage = () => {
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="formBasicPassword2">
           <Form.Label>re-enter the password</Form.Label>
           <Form.Control
             type="password"
             placeholder="re-enter the password"
             onChange={(e) => setSecPassword(e.target.value)}
+            required
           />
         </Form.Group>
 

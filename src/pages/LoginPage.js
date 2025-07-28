@@ -30,7 +30,7 @@ const LoginPage = () => {
   };
   return (
     <div className="display-center">
-      {error && <div>{error}</div>}
+      {error && <div className="red-error">{error}</div>}
       <Form className="login-box" onSubmit={handleLogin}>
         <h1>로그인</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
