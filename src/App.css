@@ -90,3 +90,16 @@ button {
 .red-error {
   color: red;
 }
+
+.button-logout {
+  height: 40px;
+  width: 100%;
+  border: none;
+  background-color: lightblue;
+  color: white;
+}
+.button-logout:hover {
+  background-color: white;
+  color: lightblue;
+  border: 2px solid lightblue;
+}
