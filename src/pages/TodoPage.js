@@ -4,20 +4,19 @@ import api from "../utils/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import { useNavigate } from "react-router-dom";
 
 const TodoPage = () => {
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
-  const navigate = useNavigate();
 
   const getTasks = async () => {
     const response = await api.get("/tasks");
     setTodoList(response.data.data);
   };
   useEffect(() => {
-    !sessionStorage.getItem("token") ? navigate("/login") : getTasks();
+    getTasks();
   }, []);
+
   const addTodo = async () => {
     try {
       const response = await api.post("/tasks", {
@@ -68,6 +67,9 @@ const TodoPage = () => {
             onChange={(event) => setTodoValue(event.target.value)}
             className="input-box"
             value={todoValue}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") addTodo();
+            }}
           />
         </Col>
         <Col xs={12} sm={2}>
